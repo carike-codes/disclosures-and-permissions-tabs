@@ -5,6 +5,25 @@ Requires at least: 4.9
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Consent API: TRUE
+Disclosures Tab: TRUE
+External Network Calls PHP: FALSE
+External Network Calls JavaScript: FALSE
+External Network Calls CSS: FALSE
+SaaS: FALSE
+Calls to External APIs: FALSE
+Remote Assets: FALSE
+Sets Cookies: FALSE
+Writes to DB: FALSE
+Creates Custom Post Type: FALSE
+Creates Custom Table: FALSE
+Stores PPI: FALSE
+Sends e-mails: TRUE
+Advertising on Dashboard: FALSE
+Advertising on Plugins List: FALSE
+Advertising on Plugin Setting Page: FALSE
+Asks for Backlinks: FALSE
+Code Audited by Third Party: FALSE
 
 CODE IS NOT FUNCTIONAL YET.  Experimental plugin.  For discussion / development.  Intended as Feature as a Plugin.
 
@@ -54,84 +73,87 @@ No.
 
 == Changelog == 
 
+= 0.0.1. =
+
+For discussion purposes only.  Code is not yet functional.
+
+Updated readme.txt:
+
+"Privacy", "Security", "Accessibility" and "Certifications" sections were removed in favour of headers.
+Headers should default to FALSE (when parsed), unless explicitly declared as TRUE.
+
+"Privacy" section:
+
+1. Declaring compatibility with privacy tools:
+1.1. Removed "Consent API Compatibility" section;
+1.1.1. Added header for "Consent API";
+1.2. Removed "Disclosures and Permissions Tabs compatibility" section;
+1.2.1. Added header for "Disclosures Tab";
+
+2. Helping the site administrator / owner understand how the plugin communicates with other sites:
+2.1. Removed "External Network Calls" sub-section;
+2.1.1. Added header for "External Network Calls PHP";
+2.1.2. Added header for "External Network Calls JavaScript";
+2.1.3. Added header for "External Network Calls CSS";
+These were split as they may generally be associated with varying levels of risk.
+
+3. Contractual Terms other than the GNU GPL License that may apply to use of the plugin:
+3.1. Removed "Contractual Terms" section;
+3.1.1. Added header for "SaaS";
+Intended for cases where the plugin requires an account with a third party.
+E.g. Accounting software
+3.1.2. Added header for "Calls to External APIs";
+Intended for cases where an account with the third party is not necessarily required.
+E.g. Add To Any Social Sharing Buttons
+3.1.3. Added header for "Remote Assets";
+Intended for cases where information is fetched from a third party domain.
+E.g. external loading of fonts / images / etc.
+
+If the plugin author sets any of these headers as TRUE, they need to provide a comma-separated list to the Terms of Service / license terms for each instance.
+
+4. Helping the site administrator / owner understand how the plugin collects user data:
+4.1. Removed "Cookies" sub-section / Added header for "Sets Cookies";
+
+5. Helping the site administrator / owner understand the ways in which the plugin processes / stores user data:
+5.1. Removed "Cron Jobs" sub-section;
+5.1.1. This remains relevant to the Disclosures and Permissions Tabs, but is excluded from the recommended readme.txt.
+5.2. Added header for "Writes to DB";
+5.2.1. This is intended for any instance in which the plugin writes to the MySQL / MariaDB database;
+5.3. Added header for "Creates Custom Post Type";
+5.4. Added header for "Creates Custom Table";
+5.5. Added header for "Stores PPI";
+Intended for plugins that store Personally Identifiable Information (e.g. creates entries in the user_meta table).
+
+6. Helping the site administrator / owner understand other ways in which the plugin can send user data:
+6.2. Removed "Mail" sub-section;
+6.2.1. Added header for "Sends e-mails";
+
+7. The site administrator / owner as a customer:
+7.1. Removed "Advertising" sub-section;
+7.1.1. Added header for "Advertising on Dashboard";
+7.1.2. Added header for "Advertising on Plugins List";
+7.1.3. Added header for "Advertising on Plugin Settings Page";
+7.2. Removed "Credits" sub-section;
+7.2.1. Added header for "Asks for Backlinks";
+
+8.1. Removed "Applicable Regulartory Standards" section
+8.1.1. Alternatives to be considered and discussed.
+
+"Security" section 
+
+9.1. Removed "Security" section;
+9.1.1. "Report this Plugin" button in sidebar recommended (with appropriate measures to help prevent abuse);
+
+"Accessibility" section
+
+10.1. Removed "Accessibility section;
+10.1.1. Automated tools are not currently available.
+10.1.2. Alternatives to be considered and discussed.
+
+"Certifications" section
+
+11.1. Removed section regarding Certifications;
+11.1.1. Added header for "Code Audited by Third Party".
+
 = 0.0.0. =
 Version for discussion.  Code is not yet functional.
-
-== Privacy Related Considerations ==
-
-= Applicable Regulatory Standards =
-
-The DPT plugin has not been tested against any specific regulatory standard.
-It does not, nor does it claim to, comply with any specific regulatory standard.
-The site administrator / owner is advised to exercise their best judgement whether this plugin is suitable for use within the regulatory frameworks in which they operate and to seek out legal advice if necessary.
-
-= Contractual Terms =
-
-Your use of the DPT plugin is subject to the license terms of the GNU General Public License 2.0. or later.
-
-The DPT plugin does not seek to create any contractual relationship with you, other than those covered by the above license.
-The DPT plugin does not operate as Software as a Service.
-
-= Consent API Compatibility =
-
-The DPT plugin aims to be compatible with the Consent API.
-
-= Disclosure and Permissions Tabs Compatibility =
-
-The DPT plugin aims to be compatible with the Disclosure and Permissions Tabs.
-
-= Cookies =
-
-The DPT plugin does not set any cookies.
-The DPT plugin reserves the right to set cookies in future versions of the plugin, if this is in the best interests of its development, subject to providing the appropriate disclosures in that future version of the plugin's readme.txt file.
-
-= External Network Calls =
-
-The DPT plugin does not send any external network calls.
-The DPT plugin reserves the right to make external network calls in future versions of the plugin, if this is in the best interests of its development, subject to providing the appropriate disclosures in that future version of the plugin's readme.txt file.
-
-= Cron Jobs =
-
-The DPT plugin does not create any cron jobs.
-The DPT plugin reserves the right to create cron jobs in future versions of the plugin, if this is in the best interests of its development, subject to providing the appropriate disclosures in that future version of the plugin's readme.txt file.
-
-= Mail =
-
-The DPT plugin may attempt to send notifications to administrators, based on their e-mail notification settings.
-Such e-mails are classified as functional and / or may contain security related information.
-The site administrator / owner may choose to opt out from such notices on behalf of all users by visiting the Permissions Tab under the Plugins menu in /wp-admin/; however, this is NOT advisable, due to the functional nature of the notifications.
-
-= Advertising =
-
-The DPT plugin does not currently contain advertisements.
-The DPT plugin reserves the right to display advertisements on the plugin's settings page; the plugin list page, as well as the dashboard in the /wp-admin/ area.
-We endeavour to comply with any Guidelines pertaining to advertisements set by repositories that we submit to.
-Any advertisements set by the DPT plugin should be dismiss-able by a user with the "manage options" capability visiting the Permissions settings page under the Plugins tab in the /wp-admin/ area.
-
-= Credits =
-
-The WordPress.org repository's Guidelines requires opt-in consent if credits are to be displayed to users on the site's front end.
-The DPT plugin does not currently seek to set credits on the front end.
-
-== Accessibility ==
-
-As the DPT plugin does not have a focus on presentation elements, it does not seek to target any specific WCAG 2.0. level.
-The accessibility of this plugin should be roughly equivalent to that of the /wp-admin/ area in general.
-
-== Security ==
-
-The DPT plugin does not aim to conform to any specific security framework.
-
-The DPT plugin does seek to conform to WordPress.org repository best practices, including as they relate to security.
-If you would like to help keep the WordPress.org ecosystem safe for the community and you have spotted a possible vulnerability in this plugin, please use the "Report This Plugin" button provided.
-If you suspect that this plugin itself constitutes an exploit, please choose the option to notify only the Plugin Team.  An e-mail will be sent to them.  Members of the Plugins Team are volunteers, so please allow some time for them to respond.
-If you would like to inform the developer of the suspected exploit, please select the appropriate option.  You may choose to include your contact details to the developer or not.
-Please note that your contact details may be used to assist you with the resolution of your query and may be processed and stored in accordance with the WordPress.org and the developer's privacy policies (if applicable).
-Please include Proof of Concept if you can, as well as as many other details as possible.
-Please note that the "Report This Plugin" is not a support channel.  Any e-mails not related to security vulnerabilities will not be responded to.
-
-== Certifications ==
-
-The DPT has not undergone any certifications with regards to compliance.
-
-The plugin is provided in accordance with the GNU 2.0. General Public License (or later) and as such, is offered "as is" and expressly offers no warranties or guarantees of any kind, including, but not limited to, fitness for any purpose.
