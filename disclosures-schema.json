@@ -40,6 +40,10 @@
             "slug": {
                "description": "Please supply the slug, if the code relates to a plugin or a theme.",
                "type": "string"
+            },
+            "componentVersion": {
+               "description": "Please supply the plugin or theme's version number, or the Core version, if the component is Core.",
+               "type": "string"
             }
          }
       },
@@ -96,9 +100,16 @@
             }
          }
       },
-      "APIEndpoints": {
-         "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
-         "type": "string"
+      "openWebParticipation": {
+         "type": "object",
+         "properties": {
+            "APIEndpoints": {
+               "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
+               "type": "string"
+            },
+            "Feeds": {
+               "description": "Please provide a comma-separated list of URLs for any internal feeds that are created by the code, using example.com as the domain.",
+         }
       },
       "clientSideStorage": {
          "type": "object",
@@ -130,6 +141,17 @@
             },
             "CreatesCustomTables": {
                "description": "Please indicate TRUE / FALSE as to whether the code creates any custom tables in the database.",
+               "type": "boolean"
+            }
+         }
+      },
+      "otherStorage": {
+         "type": "object",
+         "properties": {
+            "writesToTxtLogs": {
+               "type": "boolean"
+            },
+            "altersFileStructure": {
                "type": "boolean"
             }
          }
@@ -184,4 +206,5 @@
             }
          }
       }
-// no changes to description
+   }
+}
