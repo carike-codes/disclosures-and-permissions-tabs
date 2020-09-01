@@ -24,6 +24,7 @@
 
 
 
+
 {
    "$schema": "https://core.trac.wordpress.org/ticket/51092",
    "$id": "https://example.com/to.be.filled.in.later.disclosures.json",
@@ -42,6 +43,10 @@
                "type": "string"
             },
             "version": {
+               "description": "Please supply which version of disclosures.json this represents for the individual component.",
+               "type": "string"
+            },
+            "since": {
                "description": "Please supply the plugin or theme's version number, or the Core version, if the component is a Core component, which introduced the current version of this disclosures.json file, i.e. this should represent the since value.",
                "type": "string"
             }
@@ -50,7 +55,7 @@
       "licenses": {
          "type": "object",
          "properties": {
-            "component": {
+            "code": {
                "description": "Please provide a URL to the license that applies to this component (plugin, theme, or Core component)'s use.",
                "type": "string"
             },
@@ -75,10 +80,11 @@
          }
       },
       "external": {
-         "description": "Please enter a comma-separated list of URLs containing the links to the Privacy Policies of the sites to which the calls to external networks are being made.",
+         "description": "A comma-separated list of URLs containing the links to the Privacy Policies of the sites to which the calls to external networks are being made.",
          "type": "object",
          "properties": {
             "PHP": {
+               "description": "A comma-separated list of URLs of links to the respective Privacy Policies of the sites to which the external network calls are being made in PHP.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -87,6 +93,7 @@
                "uniqueItems": true
             },
             "JavaScript": {
+               "description": "A comma-separated list of URLs of links to the respective Privacy Policies of the sites to which the external network calls are being made in JavaScript.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -95,6 +102,7 @@
                "uniqueItems": true
             },
             "CSS": {
+               "description": "A comma-separated list of URLs of links to the respective Privacy Policies of the sites to which the external network calls are being made in CSS.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -106,10 +114,10 @@
       },
       "terms": {
          "type": "object"
-         "description": "Please provide details about third party Terms and Conditions, if applicable."
+         "description": "A comma-separated list to third party Terms and Conditions, if applicable.",
          "properties": {
             "SaaS": {
-               "description": "Please provide a comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
+               "description": "A comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -118,7 +126,7 @@
                "uniqueItems": true
             },
             "externalAPIs": {
-               "description": "Please provide a comma-separated list of URLs to the Terms of Service of any external API being used.",
+               "description": "A comma-separated list of URLs to the Terms of Service of any external API being used.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -127,7 +135,7 @@
                "uniqueItems": true
             },
             "remoteAssets": {
-               "description": "Please provide a comma-separated list of URLs to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+               "description": "A comma-separated list of URLs to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -135,7 +143,7 @@
                },
                "uniqueItems": true
             },
-            "requiresRegistration": {
+            "registration": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
                "type": "array",
                "items": {
@@ -148,10 +156,10 @@
       },
       "openWeb": {
          "type": "object",
-         "description": "Please provide details about mechanisms that allow others to obtain information from the site without browsing the website's front end.",
+         "description": "Details about mechanisms that allow others to obtain information from the site without browsing the website's front end.",
          "properties": {
-            "APIEndpoints": {
-               "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
+            "apiEndpoints": {
+               "description": "A comma-separated list of URLs for any internal API endpoints that are created by the code.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -160,7 +168,7 @@
                "uniqueItems": true
             },
             "feeds": {
-               "description": "Please provide a comma-separated list of URLs for any internal feeds that are created by the code, using example.com as the domain.",
+               "description": "A comma-separated list of URLs for any internal feeds that are created by the code.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -170,11 +178,11 @@
             }
          }
       },
-      "clientSideStorage": {
+      "clientSide": {
          "type": "object",
          "properties": {
             "setsCookiesPHP": {
-               "description": "Please provide the names of any cookies that have been set using PHP.",
+               "description": "The names of any cookies that have been set using PHP.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -182,7 +190,7 @@
                "uniqueItems": true
             },
             "setsCookiesJavaScript": {
-               "description": "Please provide the names of any cookies that have been set using JavaScript.",
+               "description": "The names of any cookies that have been set using JavaScript.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -190,7 +198,7 @@
                "uniqueItems": true
             },
             "usesLocalStorage": {
-               "description": "Please indicate whether the code makes use of local storage.",
+               "description": "Whether or not the code makes use of local storage.",
                "type": "boolean"
             }
          }
@@ -199,8 +207,18 @@
          "type": "object",
          "properties": {
             "writesToDB": {
-               "description": "Please indicate TRUE / FALSE to whether the code writes any data to the database.",
-               "type": "boolean"
+               "description": "Whether or not the code writes to the database.",
+               "type": "object",
+               "properties": {
+                  "auto": {
+                     "description": "Whether or not the code writes to the database in relation to information that is not explicitly input by a user.",
+                     "type": "boolean"
+                  },
+                  "manual": {
+                     "description": "Whether or not the code writes to the database that is not explicitly input by a user.",
+                     "type": "boolean"
+                  }
+               }
             },
             "CPT": {
                "type": "object",
@@ -237,15 +255,29 @@
       "otherStorage": {
          "type": "object",
          "properties": {
-            "writesToTxt": {
-               "type": "boolean"
+            "writesToFiles": {
+               "description": "A comma-separated list of file types the code writes to (e.g. .txt).",
+               "type": "array",
+               "items": {
+                  "type": "string",
+               }
             },
-            "altersFileStructure": {
-               "type": "boolean"
+            "fileStructure": {
+               "description": "Whether or not the code makes changes to the website's file structure.",
+               "type": "object",
+               "properties": {
+                  "auto": {
+                     "description": "Whether or not the code makes changes, or is capable of making changes, to the website's file structure that are not explicitly initiated by a user. This does not include files that are added directly from the repository, or in the original .zip file.",
+                     "type": "boolean"
+                  },
+                  "manual": {
+                     "description": "Whether or not the code makes changes, or is capable of making changes, to the website's file structure that are explicitly initiated by the user. This does not include files that are added directly from the repository, or in the original .zip file.",
+                  }
+               }
             }
          }
       },
-      "PPI": {
+      "ppi": {
          "description": "Please indicate TRUE / FALSE as to whether the code stores any Protected Personal Information.",
          "type": "boolean"
       },
@@ -254,33 +286,37 @@
          "description": "Please indicate the component's compatibility with Privacy Tools.",
          "properties": {
             "ppiExport": {
-               "description": "Do you as a developer consider the code to be compatible with the PPI Export Tool in WordPress?",
+               "description": "Does the developer, in good faith, consider the code to be compatible with the PPI Export Tool in WordPress?",
                "type": "boolean"
             },
             "ppiErasure": {
-               "description": "Do you as a developer consider the code to be compatible with the PPI Erasure Tool in WordPress?",
+               "description": "Does the developer, in good faith, consider the code to be compatible with the PPI Erasure Tool in WordPress?",
                "type": "boolean"
             },
             "consentAPI": {
-               "description": "Do you as a developer consider the code to be compatible with the WordPress Consent API?",
+               "description": "Does the developer, in good faith, consider the code to be compatible with the WordPress Consent API?",
                "type": "boolean"
             },
             "disclosuresTab": {
-               "description": "Do you as a developer consider the code to be compatible with the Disclosure Tab?",
+               "description": "Do the developer, in good faith, consider the code to be compatible with the Disclosure Tab?",
                "type": "boolean"
             },
             "permissionsTab": {
-               "description": "Do you as a developer consider the code to be compatible with the Permissions Tab?",
+               "description": "Do the developer, in good faith, consider the code to be compatible with the Permissions Tab?",
                "type": "boolean"
             }
          }
       },
       "monetization": {
          "type": "object",
-         "description": "Please provide details regarding monetization practices.",
+         "description": "This section provides details regarding monetization practices.",
          "properties": {
             "upsells": {
                "description": "Does this code promote a paid version, or extensions, or other products or services from the same author(s)?",
+               "type": "boolean"
+            },
+            "donations": {
+               "description": "Does this code contain any request, or information in order to, donate to the plugin or its developer(s)?",
                "type": "boolean"
             },
             "backLinks": {
