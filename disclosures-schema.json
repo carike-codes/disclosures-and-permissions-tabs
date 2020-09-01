@@ -1,0 +1,133 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+   "$schema": "https://core.trac.wordpress.org/to.be.filled.in.later",
+   "$id": "https://example.com/to.be.filled.in.later.disclosures.tab.json",
+   "description": "The vision of the Disclosures Tab is for site administrators to understand their site's privacy risk profile and to make more informed privacy-related choices as a result. The mission of the Disclosures Tab is to help site administrators understand what information their site collects, where it is stored and where it is sent - and in particular, with whom it is shared.",
+   "type": "object",
+   "properties": {
+      "identification": {
+         "type": "object",
+         "properties": {
+            "component": {
+               "description": "Please enter one of the following values: plugin, theme, Core",
+               "type": "string"
+            },
+            "slug": {
+               "description": "Please supply the slug, if the code relates to a plugin or a theme.",
+               "type": "string"
+            }
+         }
+      },
+      "externalNetworkCalls": {
+         "description": "Please enter a comma-separated list of URLs containing the links to the Privacy Policies of the sites to which the external calls are being made.",
+         "type": "object",
+         "properties": {
+            "PHP": {
+               "type": "string"
+            },
+            "JavaScript": {
+               "type": "string"
+            },
+            "CSS": {
+               "type": "string"
+            }
+         }
+      },
+      "SaaS": {
+         "description": "Please provide a comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
+         "type": "string"
+      },
+      "ExternalAPICalls": {
+         "description": "Please provide a comma-separated list of URLs to the Terms of Service of any external API being used.",
+         "type": "string"
+      },
+      "APIEndpoints": {
+         "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain."
+         "type": "string"
+      },
+      "RemoteAssets": {
+         "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+         "type": "string"
+      },
+      "LocalAssetLicenses": {
+         "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of the code, as well as the licenses of any images, fonts, etc.",
+         "type": "string"
+      },
+      "setsCookies": {
+         "type": "object",
+         "properties": {
+            "PHP": {
+               "description": "Please provide the names of any cookies that have been set using PHP.",
+               "type": "string"
+            },
+            "JavaScript": {
+               "description": "Please provide the names of any cookies that have been set using JavaScript.",
+               "type": "string"
+            }
+         }
+      },
+      "WritesToDB": {
+         "description": "Please indicate TRUE / FALSE to whether the code writes any data to the database.",	94	         "type": "object",
+         "type": "boolean"
+      },
+      "CreatesCustomPostTypes": {
+         "description": "Please indicate TRUE / FALSE as to whether the code creates any Custom Post Types",
+         "type": "boolean"
+      },
+      "CreatesCustomTables": {
+         "description": "Please indicate TRUE / FALSE as to whether the code creates any custom tables in the database.",
+         "type": "boolean"
+      },
+      "StoresPPI": {
+         "description": "Please indicate TRUE / FALSE as to whether the code stores any Protected Personal Information.",
+         "type": "boolean"
+      },
+      "CompatibilityWithPrivacyTools": {
+         "type": "object",
+         "properties": {
+            "PPIExport": {
+               "description": "Do you as a developer consider the code to be compatible with the PPI Export Tool in WordPress?",
+               "type": "boolean"
+            },	120
+            "PPIErasure": {
+               "description": "Do you as a developer consider the code to be compatible with the PPI Erasure Tool in WordPress?",
+               "type": "boolean"
+            },
+            "ConsentAPI": {
+               "description": "Do you as a developer consider the code to be compatible with the WordPress Consent API?",
+               "type": "boolean"
+            },
+            "DisclosuresTab": {
+               "description": "Do you as a developer consider the code to be compatible with the Disclosure Tab?",
+               "type": "boolean"
+            },
+            "PermissionsTab": {
+               "description": "Do you as a developer consider the code to be compatible with the Permissions Tab?",
+               "type": "boolean"
+            }
+         }
+      }
