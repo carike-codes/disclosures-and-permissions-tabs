@@ -90,17 +90,22 @@
             }
          }
       },
-      "WritesToDB": {
-         "description": "Please indicate TRUE / FALSE to whether the code writes any data to the database.",	94	         "type": "object",
-         "type": "boolean"
-      },
-      "CreatesCustomPostTypes": {
-         "description": "Please indicate TRUE / FALSE as to whether the code creates any Custom Post Types",
-         "type": "boolean"
-      },
-      "CreatesCustomTables": {
-         "description": "Please indicate TRUE / FALSE as to whether the code creates any custom tables in the database.",
-         "type": "boolean"
+      "DatabaseManagement": {
+         "type": "object",
+         "properties": {
+            "WritesToDB": {
+               "description": "Please indicate TRUE / FALSE to whether the code writes any data to the database.",
+               "type": "boolean"
+            },
+            "CreatesCustomPostTypes": {
+               "description": "Please indicate TRUE / FALSE as to whether the code creates any Custom Post Types",
+               "type": "boolean"
+            },
+            "CreatesCustomTables": {
+               "description": "Please indicate TRUE / FALSE as to whether the code creates any custom tables in the database.",
+               "type": "boolean"
+            }
+         }
       },
       "StoresPPI": {
          "description": "Please indicate TRUE / FALSE as to whether the code stores any Protected Personal Information.",
