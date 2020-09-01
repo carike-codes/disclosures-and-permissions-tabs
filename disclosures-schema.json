@@ -22,6 +22,7 @@
 
 
 
+
 {
    "$schema": "https://core.trac.wordpress.org/to.be.filled.in.later",
    "$id": "https://example.com/to.be.filled.in.later.disclosures.tab.json",
@@ -56,35 +57,44 @@
             }
          }
       },
-      "SaaS": {
-         "description": "Please provide a comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
-         "type": "string"
-      },
-      "ExternalAPICalls": {
-         "description": "Please provide a comma-separated list of URLs to the Terms of Service of any external API being used.",
-         "type": "string"
+      "ThirdPartyConditions": {
+         "type": "object"
+         "properties": {
+            "SaaS": {
+               "description": "Please provide a comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
+               "type": "string"
+            },
+            "ExternalAPICalls": {
+               "description": "Please provide a comma-separated list of URLs to the Terms of Service of any external API being used.",
+               "type": "string"
+            },
+            "RemoteAssets": {
+               "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+               "type": "string"
+            }
+         }
       },
       "APIEndpoints": {
-         "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain."
-         "type": "string"
-      },
-      "RemoteAssets": {
-         "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+         "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
          "type": "string"
       },
       "LocalAssetLicenses": {
          "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of the code, as well as the licenses of any images, fonts, etc.",
          "type": "string"
       },
-      "setsCookies": {
+      "clientSideStorage": {
          "type": "object",
          "properties": {
-            "PHP": {
+            "setsCookiesInPHP": {
                "description": "Please provide the names of any cookies that have been set using PHP.",
                "type": "string"
             },
-            "JavaScript": {
+            "setsCookiesUsingJavaScript": {
                "description": "Please provide the names of any cookies that have been set using JavaScript.",
+               "type": "string"
+            },
+            "usesLocalStorage": {
+               "description": "Please indicate whether the code makes use of local storage.",
                "type": "string"
             }
          }
