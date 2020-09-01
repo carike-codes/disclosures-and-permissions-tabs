@@ -2,28 +2,11 @@
 Contributors: Carike
 Tags: disclosures, permissions, privacy, security
 Requires at least: 4.9
+Tested up to: 5.5
+Stable tag: 0.0.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Consent API: TRUE
-Disclosures Tab: TRUE
-External Network Calls PHP: FALSE
-External Network Calls JavaScript: FALSE
-External Network Calls CSS: FALSE
-SaaS: FALSE
-Calls to External APIs: FALSE
-Remote Assets: FALSE
-Sets Cookies: FALSE
-Writes to DB: FALSE
-Creates Custom Post Type: FALSE
-Creates Custom Table: FALSE
-Stores PPI: FALSE
-Sends e-mails: TRUE
-Advertising on Dashboard: FALSE
-Advertising on Plugins List: FALSE
-Advertising on Plugin Setting Page: FALSE
-Asks for Backlinks: FALSE
-Code Audited by Third Party: FALSE
 
 CODE IS NOT FUNCTIONAL YET.  Experimental plugin.  For discussion / development.  Intended as Feature as a Plugin.
 
@@ -72,6 +55,33 @@ Site administrators / owners can turn off permissions for marketing; statistics;
 No.
 
 == Changelog == 
+
+= 0.0.2. =
+
+For discussion purposes only. Code is not yet functional.
+
+1. Updated readme.text:
+
+1.1. Removed the additional proposed headers 
+(in favour of proposing a dislosures.json file,
+based on Timothy's suggestion in #49272).
+
+2. Create disclosures-schema.json file:
+
+2.1. Created a disclosures-schema.json file
+(see #51092).
+
+3. Create  disclosures.json template:
+
+3.1. Create a template for disclosures
+(see #51156).
+
+4. Create illustrative examples for developers:
+
+4.1. Create illustrative examples for developers
+(see #51156).
+
+5. Updated repository Wiki.
 
 = 0.0.1. =
 
