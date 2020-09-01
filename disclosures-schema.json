@@ -117,7 +117,7 @@
             "PPIExport": {
                "description": "Do you as a developer consider the code to be compatible with the PPI Export Tool in WordPress?",
                "type": "boolean"
-            },	120
+            },
             "PPIErasure": {
                "description": "Do you as a developer consider the code to be compatible with the PPI Erasure Tool in WordPress?",
                "type": "boolean"
@@ -132,6 +132,27 @@
             },
             "PermissionsTab": {
                "description": "Do you as a developer consider the code to be compatible with the Permissions Tab?",
+               "type": "boolean"
+            }
+         }
+      },
+      "MonetizationPractices": {
+         "type": "object",
+         "properties": {
+            "UpsellingInWPAdmin": {
+               "description": "Does this code promote a paid version, or extensions, or other products or services from the same author(s)?",
+               "type": "boolean"
+            },
+            "AsksForBackLinks": {
+               "description": "Does this code contain or generate, or ask the site owner / admin for permission to generate, backlinks?",
+               "type": "boolean"
+            },
+            "AffiliateLinks": {
+               "description": "Does this code contain, or generate affiliate links - i.e. links from which the author may receive conditional compensation, whether in money, or in kind?",
+               "type": "boolean"
+            },
+            "PaidPromotion": {
+               "description": "Does the code contain, or generate promotions or recommendations for any products or services not directly under the control of the author(s), for which the author(s) receive any compensation, whether in money, or in kind?",
                "type": "boolean"
             }
          }
