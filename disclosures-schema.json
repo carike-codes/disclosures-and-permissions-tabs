@@ -52,9 +52,7 @@
             }
          }
       },
-      
-      
-      
+
       
       
       
@@ -62,24 +60,25 @@
          "type": "object",
          "properties": {
             "code": {
-               "description": "Please provide a URL to the license that applies to this component (plugin, theme, or Core component)'s use.",
-               "type": "string"
+               "description": "A URL to the license that applies to this component (plugin, theme, or Core component)'s use.",
+               "type": "string",
+               "format": "uri"
             },
             "localAssets": {
-               "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of any bundled libraries, as well as the licenses of any images, fonts, etc.",
+               "description": "A comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of any bundled libraries, as well as the licenses of any images, fonts, etc.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             },
             "remoteAssets": {
-               "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that is accessed remotely. This includes the licenses of any external libraries, as well as the licenses of any images, fonts, etc.",
+               "description": "A comma-separated list of URLs to the license that applies to the use of each asset that is accessed remotely. This includes the licenses of any external libraries, as well as the licenses of any images, fonts, etc.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             }
@@ -90,7 +89,7 @@
       
       
       "external": {
-         "description": "A comma-separated list of URLs containing the links to the Privacy Policies of the sites to which the calls to external networks are being made.",
+         "description": "A comma-separated list of URLs linking to the Privacy Policies of the sites to which the calls to external networks are being made.",
          "type": "object",
          "properties": {
             "PHP": {
@@ -98,25 +97,25 @@
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             },
             "JavaScript": {
-               "description": "A comma-separated list of URLs of links to the respective Privacy Policies of the sites to which the external network calls are being made in JavaScript.",
+               "description": "A comma-separated list of URLs linking to the respective Privacy Policies of the sites to which the external network calls are being made in JavaScript.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             },
             "CSS": {
-               "description": "A comma-separated list of URLs of links to the respective Privacy Policies of the sites to which the external network calls are being made in CSS.",
+               "description": "A comma-separated list of URLs linking to the respective Privacy Policies of the sites to which the external network calls are being made in CSS.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             }
@@ -128,41 +127,41 @@
       
       "terms": {
          "type": "object"
-         "description": "A comma-separated list to third party Terms and Conditions, if applicable.",
+         "description": "A comma-separated list of URLs linking to third party Terms and Conditions, if applicable.",
          "properties": {
             "SaaS": {
-               "description": "A comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
+               "description": "A comma-separated list of URLs linking to the Terms of Service of any instances of Software as a Service.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             },
             "externalAPIs": {
-               "description": "A comma-separated list of URLs to the Terms of Service of any external API being used.",
+               "description": "A comma-separated list of URLs linking to the Terms of Service of any external API being used.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             },
             "remoteAssets": {
-               "description": "A comma-separated list of URLs to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+               "description": "A comma-separated list of URLs linking to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             },
             "registration": {
-               "description": "Please provide a comma-separated list of URLs to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
+               "description": "Please provide a comma-separated list of URLs linking to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
                "type": "array",
                "items": {
                   "type": "string",
-                  "format": "uri-reference"
+                  "format": "uri"
                },
                "uniqueItems": true
             }
@@ -177,7 +176,7 @@
          "description": "Details about mechanisms that allow others to obtain information from the site without browsing the website's front end.",
          "properties": {
             "apiEndpoints": {
-               "description": "A comma-separated list of URLs for any internal API endpoints that are created by the code.",
+               "description": "A comma-separated list of relative URLs for any internal API endpoints that are created by the code.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -186,7 +185,7 @@
                "uniqueItems": true
             },
             "feeds": {
-               "description": "A comma-separated list of URLs for any internal feeds that are created by the code.",
+               "description": "A comma-separated list of relative URLs for any internal feeds that are created by the code.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -222,6 +221,28 @@
             "usesLocalStorage": {
                "description": "Whether or not the code makes use of local storage.",
                "type": "boolean"
+            }
+         }
+      },
+
+
+
+
+      "communication": {
+         "type": "object",
+         "properties": {
+            "email": {
+               "type": "object",
+               "properties": {
+                  "sends": {
+                     "description": "Whether or not the code sends e-mails.",
+                     "type": "boolean"
+                  },
+                  "subscribed": {
+                     "description": "Whether e-mails are only sent to users that have subscribed for that particular e-mail (e.g. a newsletter).",
+                     "type": "boolean"
+                  }
+               }
             }
          }
       },
@@ -311,13 +332,27 @@
 
 
 
+      "automation": {
+         "description": "Provides some information with regards to action taken by the code without user input.",
+         "type": "object",
+         "properties": {
+            "cron": {
+               "description": "Whether the code makes use of scheduled tasks that do not require user input.",
+               "type": "boolean"
+            }
+         }
+      },
+
+
+
+
       "ppi": {
-         "description": "Please indicate TRUE / FALSE as to whether the code stores any Protected Personal Information.",
+         "description": "Whether or not the code stores any Protected Personal Information.",
          "type": "boolean"
       },
       "compatibility": {
          "type": "object",
-         "description": "Please indicate the component's compatibility with Privacy Tools.",
+         "description": "Indicates the component's compatibility with Privacy Tools.",
          "properties": {
             "ppiExport": {
                "description": "Does the developer, in good faith, consider the code to be compatible with the PPI Export Tool in WordPress?",
