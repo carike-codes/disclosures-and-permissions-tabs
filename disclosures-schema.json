@@ -42,12 +42,12 @@
                "type": "string"
             },
             "version": {
-               "description": "Please supply the plugin or theme's version number, or the Core version, if the component is a Core component, which introduced the current version of this disclosures.json file",
+               "description": "Please supply the plugin or theme's version number, or the Core version, if the component is a Core component, which introduced the current version of this disclosures.json file, i.e. this should represent the since value.",
                "type": "string"
             }
          }
       },
-      "licensing": {
+      "licenses": {
          "type": "object",
          "properties": {
             "component": {
@@ -56,26 +56,51 @@
             },
             "localAssets": {
                "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of any bundled libraries, as well as the licenses of any images, fonts, etc.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
             "remoteAssets": {
                "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that is accessed remotely. This includes the licenses of any external libraries, as well as the licenses of any images, fonts, etc.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             }
          }
       },
-      "externalNetworkCalls": {
-         "description": "Please enter a comma-separated list of URLs containing the links to the Privacy Policies of the sites to which the external calls are being made.",
+      "external": {
+         "description": "Please enter a comma-separated list of URLs containing the links to the Privacy Policies of the sites to which the calls to external networks are being made.",
          "type": "object",
          "properties": {
             "PHP": {
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
             "JavaScript": {
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
             "CSS": {
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             }
          }
       },
@@ -85,19 +110,39 @@
          "properties": {
             "SaaS": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
-            "externalAPICalls": {
+            "externalAPIs": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service of any external API being used.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
             "remoteAssets": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
             "requiresRegistration": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             }
          }
       },
@@ -107,38 +152,57 @@
          "properties": {
             "APIEndpoints": {
                "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             },
             "feeds": {
                "description": "Please provide a comma-separated list of URLs for any internal feeds that are created by the code, using example.com as the domain.",
+               "type": "array",
+               "items": {
+                  "type": "string",
+                  "format": "uri-reference"
+               },
+               "uniqueItems": true
             }
          }
       },
       "clientSideStorage": {
          "type": "object",
          "properties": {
-            "setsCookiesInPHP": {
+            "setsCookiesPHP": {
                "description": "Please provide the names of any cookies that have been set using PHP.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+               },
+               "uniqueItems": true
             },
-            "setsCookiesUsingJavaScript": {
+            "setsCookiesJavaScript": {
                "description": "Please provide the names of any cookies that have been set using JavaScript.",
-               "type": "string"
+               "type": "array",
+               "items": {
+                  "type": "string",
+               },
+               "uniqueItems": true
             },
             "usesLocalStorage": {
                "description": "Please indicate whether the code makes use of local storage.",
-               "type": "string"
+               "type": "boolean"
             }
          }
       },
-      "databaseManagement": {
+      "database": {
          "type": "object",
          "properties": {
             "writesToDB": {
                "description": "Please indicate TRUE / FALSE to whether the code writes any data to the database.",
                "type": "boolean"
             },
-            "createsCPT": {
+            "CPT": {
                "type": "object",
                "description": "Please indicate whether the component creates any Custom Post Types.",
                "properties": {
@@ -147,14 +211,14 @@
                      "type": "integer",
                      "minimum": 0
                   },
-                  "userGenerated": {
+                  "manual": {
                      "description": "Please indicate whether the code allows for users to generate Custom Post Types.",
                      "type": "boolean"
                   }
                }
             },
             "customTables": {
-               "description": "Please indicate TRUE / FALSE as to whether the code creates any custom tables in the database.",
+               "description": "Please indicate whether the code creates any custom tables in the database.",
                "type": "object",
                "properties": {
                   "auto": {
@@ -162,7 +226,7 @@
                      "type": "integer",
                      "minimum": 0
                   },
-                  "userGenerated": {
+                  "manual": {
                      "description": "Please indicate whether the code allows the user to create any custom tables.",
                      "type": "boolean"
                   }
@@ -189,23 +253,23 @@
          "type": "object",
          "description": "Please indicate the component's compatibility with Privacy Tools.",
          "properties": {
-            "PPIExport": {
+            "ppiExport": {
                "description": "Do you as a developer consider the code to be compatible with the PPI Export Tool in WordPress?",
                "type": "boolean"
             },
-            "PPIErasure": {
+            "ppiErasure": {
                "description": "Do you as a developer consider the code to be compatible with the PPI Erasure Tool in WordPress?",
                "type": "boolean"
             },
-            "ConsentAPI": {
+            "consentAPI": {
                "description": "Do you as a developer consider the code to be compatible with the WordPress Consent API?",
                "type": "boolean"
             },
-            "DisclosuresTab": {
+            "disclosuresTab": {
                "description": "Do you as a developer consider the code to be compatible with the Disclosure Tab?",
                "type": "boolean"
             },
-            "PermissionsTab": {
+            "permissionsTab": {
                "description": "Do you as a developer consider the code to be compatible with the Permissions Tab?",
                "type": "boolean"
             }
@@ -223,7 +287,7 @@
                "description": "Does this code contain or generate, or ask the site owner / admin for permission to generate, backlinks?",
                "type": "boolean"
             },
-            "affiliateLinks": {
+            "affiliates": {
                "description": "Does this code contain, or generate affiliate links - i.e. links from which the author may receive conditional compensation, whether in money, or in kind?",
                "type": "boolean"
             },
