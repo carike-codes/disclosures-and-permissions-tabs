@@ -30,28 +30,28 @@
    "description": "The vision of the Disclosures Tab is for site administrators to understand their site's privacy risk profile and to make more informed privacy-related choices as a result. The mission of the Disclosures Tab is to help site administrators understand what information their site collects, where it is stored and where it is sent - and in particular, with whom it is shared.",
    "type": "object",
    "properties": {
-      "identification": {
+      "details": {
          "type": "object",
          "properties": {
             "component": {
-               "description": "Please enter one of the following values: plugin, theme, Core",
+               "description": "Please enter one of the following values: plugin, theme, or the specific Core component",
                "type": "string"
             },
             "slug": {
                "description": "Please supply the slug, if the code relates to a plugin or a theme.",
                "type": "string"
             },
-            "componentVersion": {
-               "description": "Please supply the plugin or theme's version number, or the Core version, if the component is Core.",
+            "version": {
+               "description": "Please supply the plugin or theme's version number, or the Core version, if the component is a Core component, which introduced the current version of this disclosures.json file",
                "type": "string"
             }
          }
       },
-      "Licensing": {
+      "licensing": {
          "type": "object",
          "properties": {
-            "componentCode": {
-               "description": "Please provide a URL to the license that applies to the use of this component (plugin, theme, or Core component)'s use.",
+            "component": {
+               "description": "Please provide a URL to the license that applies to this component (plugin, theme, or Core component)'s use.",
                "type": "string"
             },
             "localAssets": {
@@ -79,18 +79,19 @@
             }
          }
       },
-      "ThirdPartyTerms": {
+      "terms": {
          "type": "object"
+         "description": "Please provide details about third party Terms and Conditions, if applicable."
          "properties": {
             "SaaS": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service of any instances of Software as a Service.",
                "type": "string"
             },
-            "ExternalAPICalls": {
+            "externalAPICalls": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service of any external API being used.",
                "type": "string"
             },
-            "RemoteAssets": {
+            "remoteAssets": {
                "description": "Please provide a comma-separated list of URLs to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
                "type": "string"
             },
@@ -100,15 +101,17 @@
             }
          }
       },
-      "openWebParticipation": {
+      "openWeb": {
          "type": "object",
+         "description": "Please provide details about mechanisms that allow others to obtain information from the site without browsing the website's front end.",
          "properties": {
             "APIEndpoints": {
                "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
                "type": "string"
             },
-            "Feeds": {
+            "feeds": {
                "description": "Please provide a comma-separated list of URLs for any internal feeds that are created by the code, using example.com as the domain.",
+            }
          }
       },
       "clientSideStorage": {
@@ -128,27 +131,49 @@
             }
          }
       },
-      "DatabaseManagement": {
+      "databaseManagement": {
          "type": "object",
          "properties": {
-            "WritesToDB": {
+            "writesToDB": {
                "description": "Please indicate TRUE / FALSE to whether the code writes any data to the database.",
                "type": "boolean"
             },
-            "CreatesCustomPostTypes": {
-               "description": "Please indicate TRUE / FALSE as to whether the code creates any Custom Post Types",
-               "type": "boolean"
+            "createsCPT": {
+               "type": "object",
+               "description": "Please indicate whether the component creates any Custom Post Types.",
+               "properties": {
+                  "auto": {
+                     "description": "Please indicate the number of Custom Post Types that are automatically created by the code without user intervention.",
+                     "type": "integer",
+                     "minimum": 0
+                  },
+                  "userGenerated": {
+                     "description": "Please indicate whether the code allows for users to generate Custom Post Types.",
+                     "type": "boolean"
+                  }
+               }
             },
-            "CreatesCustomTables": {
+            "customTables": {
                "description": "Please indicate TRUE / FALSE as to whether the code creates any custom tables in the database.",
-               "type": "boolean"
+               "type": "object",
+               "properties": {
+                  "auto": {
+                     "description": "Please indicate the number of custom tables that are automatically created by the code without user intervention.",
+                     "type": "integer",
+                     "minimum": 0
+                  },
+                  "userGenerated": {
+                     "description": "Please indicate whether the code allows the user to create any custom tables.",
+                     "type": "boolean"
+                  }
+               }
             }
          }
       },
       "otherStorage": {
          "type": "object",
          "properties": {
-            "writesToTxtLogs": {
+            "writesToTxt": {
                "type": "boolean"
             },
             "altersFileStructure": {
@@ -156,12 +181,13 @@
             }
          }
       },
-      "StoresPPI": {
+      "PPI": {
          "description": "Please indicate TRUE / FALSE as to whether the code stores any Protected Personal Information.",
          "type": "boolean"
       },
-      "CompatibilityWithPrivacyTools": {
+      "compatibility": {
          "type": "object",
+         "description": "Please indicate the component's compatibility with Privacy Tools.",
          "properties": {
             "PPIExport": {
                "description": "Do you as a developer consider the code to be compatible with the PPI Export Tool in WordPress?",
@@ -185,22 +211,23 @@
             }
          }
       },
-      "MonetizationPractices": {
+      "monetization": {
          "type": "object",
+         "description": "Please provide details regarding monetization practices.",
          "properties": {
-            "UpsellingInWPAdmin": {
+            "upsells": {
                "description": "Does this code promote a paid version, or extensions, or other products or services from the same author(s)?",
                "type": "boolean"
             },
-            "AsksForBackLinks": {
+            "backLinks": {
                "description": "Does this code contain or generate, or ask the site owner / admin for permission to generate, backlinks?",
                "type": "boolean"
             },
-            "AffiliateLinks": {
+            "affiliateLinks": {
                "description": "Does this code contain, or generate affiliate links - i.e. links from which the author may receive conditional compensation, whether in money, or in kind?",
                "type": "boolean"
             },
-            "PaidPromotion": {
+            "advertising": {
                "description": "Does the code contain, or generate promotions or recommendations for any products or services not directly under the control of the author(s), for which the author(s) receive any compensation, whether in money, or in kind?",
                "type": "boolean"
             }
