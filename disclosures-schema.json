@@ -23,9 +23,10 @@
 
 
 
+
 {
-   "$schema": "https://core.trac.wordpress.org/to.be.filled.in.later",
-   "$id": "https://example.com/to.be.filled.in.later.disclosures.tab.json",
+   "$schema": "https://core.trac.wordpress.org/ticket/51092",
+   "$id": "https://example.com/to.be.filled.in.later.disclosures.json",
    "description": "The vision of the Disclosures Tab is for site administrators to understand their site's privacy risk profile and to make more informed privacy-related choices as a result. The mission of the Disclosures Tab is to help site administrators understand what information their site collects, where it is stored and where it is sent - and in particular, with whom it is shared.",
    "type": "object",
    "properties": {
@@ -38,6 +39,23 @@
             },
             "slug": {
                "description": "Please supply the slug, if the code relates to a plugin or a theme.",
+               "type": "string"
+            }
+         }
+      },
+      "Licensing": {
+         "type": "object",
+         "properties": {
+            "componentCode": {
+               "description": "Please provide a URL to the license that applies to the use of this component (plugin, theme, or Core component)'s use.",
+               "type": "string"
+            },
+            "localAssets": {
+               "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of any bundled libraries, as well as the licenses of any images, fonts, etc.",
+               "type": "string"
+            },
+            "remoteAssets": {
+               "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that is accessed remotely. This includes the licenses of any external libraries, as well as the licenses of any images, fonts, etc.",
                "type": "string"
             }
          }
@@ -57,7 +75,7 @@
             }
          }
       },
-      "ThirdPartyConditions": {
+      "ThirdPartyTerms": {
          "type": "object"
          "properties": {
             "SaaS": {
@@ -69,17 +87,17 @@
                "type": "string"
             },
             "RemoteAssets": {
-               "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+               "description": "Please provide a comma-separated list of URLs to the Terms of Service that applies to the use of each remote asset. This relates to the use of CDNs for images, fonts, etc.",
+               "type": "string"
+            },
+            "requiresRegistration": {
+               "description": "Please provide a comma-separated list of URLs to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
                "type": "string"
             }
          }
       },
       "APIEndpoints": {
          "description": "Please provide a comma-separated list of URLs for any internal API endpoints that are created by the code using example.com as the domain.",
-         "type": "string"
-      },
-      "LocalAssetLicenses": {
-         "description": "Please provide a comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of the code, as well as the licenses of any images, fonts, etc.",
          "type": "string"
       },
       "clientSideStorage": {
