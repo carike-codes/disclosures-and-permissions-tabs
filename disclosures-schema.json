@@ -271,7 +271,9 @@
                         "description": "Whether or not the code writes information to the database that was explicitly input by the user.",
                         "type": boolean
                      },
-                     "additionalItems": false
+                     "additionalItems": {
+                        "description": "A comma-separated list of capabilities that authorize a user to write information to the database within the code.",
+                        "type": "string"
                   }
                }
             },
@@ -295,7 +297,10 @@
                         "description": "Whether or not the code allows for users to generate Custom Post Types.",
                         "type": "boolean",
                      },
-                     "additionalItems": false
+                     "additionalItems": {
+                        "description": "A comma-separated list of capabilities that authorize a user to create Custom Post Types within the code.",
+                        "type": "string"
+                     }
                   }
                }
             },
@@ -320,15 +325,17 @@
                         "description": "Whether or not the code allows the user to create any custom tables.",
                         "type": "boolean"
                      },
-                     "additionalItems": false
+                     "additionalItems": {
+                        "description": "A comma-separated list of capabilities that authorize a user to create custom tables within the code.",
+                        "type": "string"
                   }
                }
             }
          }
       },
 
-
-
+            
+            
 
       "otherStorage": {
          "description": "Provides more information about where information may be stored, other than the database.",
@@ -357,8 +364,8 @@
          }
       },
 
-
-
+            
+            
 
       "automation": {
          "description": "Provides more information with regards to action taken by the code without user input.",
@@ -371,8 +378,8 @@
          }
       },
 
-
-
+            
+            
 
       "ppi": {
          "description": "Whether or not the code stores any Protected Personal Information.",
@@ -435,8 +442,8 @@
          }
       },
 
-
-
+            
+            
 
       "monetization": {
          "type": "object",
