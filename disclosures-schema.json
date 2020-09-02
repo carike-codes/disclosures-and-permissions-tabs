@@ -25,29 +25,33 @@
 
 
 
+
+
+
 {
    "$schema": "https://core.trac.wordpress.org/ticket/51092",
    "$id": "https://example.com/to.be.filled.in.later.disclosures.json",
    "description": "The vision of the Disclosures Tab is for site administrators to understand their site's privacy risk profile and to make more informed privacy-related choices as a result. The mission of the Disclosures Tab is to help site administrators understand what information their site collects, where it is stored and where it is sent - and in particular, with whom it is shared.",
    "type": "object",
    "properties": {
-      "details": {
+      "info": {
+         "description": "This section provides information to help identify the code.",
          "type": "object",
          "properties": {
             "component": {
-               "description": "Please enter one of the following values: plugin, theme, or the specific Core component",
+               "description": "One of the following values: plugin, theme, or the specific Core component (e.g. avatar).",
                "type": "string"
             },
             "slug": {
-               "description": "Please supply the slug, if the code relates to a plugin or a theme.",
+               "description": "The slug, if the code relates to a plugin or a theme.",
                "type": "string"
             },
             "version": {
-               "description": "Please supply which version of disclosures.json this represents for the individual component.",
+               "description": "Which version of disclosures.json this represents for the individual component.",
                "type": "string"
             },
             "since": {
-               "description": "Please supply the plugin or theme's version number, or the Core version, if the component is a Core component, which introduced the current version of this disclosures.json file, i.e. this should represent the since value.",
+               "description": "The plugin or theme's version number, or the Core version, if the component is a Core component, which introduced the current version of this disclosures.json file. I.e. this should represent the since value.",
                "type": "string"
             }
          }
@@ -57,6 +61,7 @@
       
       
       "licenses": {
+         "description": "This section contains more information about licensing."
          "type": "object",
          "properties": {
             "code": {
@@ -65,7 +70,7 @@
                "format": "uri"
             },
             "localAssets": {
-               "description": "A comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This includes the license of any bundled libraries, as well as the licenses of any images, fonts, etc.",
+               "description": "A comma-separated list of URLs to the license that applies to the use of each asset that has been included locally. This should include the license of any bundled libraries, as well as the licenses of any images, fonts, etc.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -74,7 +79,7 @@
                "uniqueItems": true
             },
             "remoteAssets": {
-               "description": "A comma-separated list of URLs to the license that applies to the use of each asset that is accessed remotely. This includes the licenses of any external libraries, as well as the licenses of any images, fonts, etc.",
+               "description": "A comma-separated list of URLs to the licenses that applies to the use of each asset that is accessed remotely. This should the licenses of any external libraries, as well as the licenses of any images, fonts, etc.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -85,11 +90,11 @@
          }
       },
 
-      
-      
-      
+
+
+
       "external": {
-         "description": "A comma-separated list of URLs linking to the Privacy Policies of the sites to which the calls to external networks are being made.",
+         "description": "This section provides more information relating to the Privacy Policies of the external network sites being called.",
          "type": "object",
          "properties": {
             "PHP": {
@@ -122,12 +127,12 @@
          }
       },
 
-      
-      
-      
+
+
+
       "terms": {
+         "description": "This section contains more information about third party terms and conditions that may apply to use of the software.",
          "type": "object"
-         "description": "A comma-separated list of URLs linking to third party Terms and Conditions, if applicable.",
          "properties": {
             "SaaS": {
                "description": "A comma-separated list of URLs linking to the Terms of Service of any instances of Software as a Service.",
@@ -157,7 +162,7 @@
                "uniqueItems": true
             },
             "registration": {
-               "description": "Please provide a comma-separated list of URLs linking to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
+               "description": "A comma-separated list of URLs linking to the Terms of Service that apply to any accounts that need to be registered in order to be able to make use of this component's code.",
                "type": "array",
                "items": {
                   "type": "string",
@@ -172,8 +177,8 @@
 
 
       "openWeb": {
-         "type": "object",
          "description": "Details about mechanisms that allow others to obtain information from the site without browsing the website's front end.",
+         "type": "object",
          "properties": {
             "apiEndpoints": {
                "description": "A comma-separated list of relative URLs for any internal API endpoints that are created by the code.",
@@ -229,6 +234,7 @@
 
 
       "communication": {
+         "description": "This section provides more information about how the software communicates with external parties.",
          "type": "object",
          "properties": {
             "email": {
@@ -251,6 +257,7 @@
 
 
       "database": {
+         "description": "This section contains information about how the software interacts with the site's database (MySQL or MariaDB).",
          "type": "object",
          "properties": {
             "writesToDB": {
@@ -268,31 +275,31 @@
                }
             },
             "CPT": {
+               "description": "Whether the component creates any Custom Post Types.",
                "type": "object",
-               "description": "Please indicate whether the component creates any Custom Post Types.",
                "properties": {
                   "auto": {
-                     "description": "Please indicate the number of Custom Post Types that are automatically created by the code without user intervention.",
+                     "description": "The number of Custom Post Types that are automatically created by the code without user intervention.",
                      "type": "integer",
                      "minimum": 0
                   },
                   "manual": {
-                     "description": "Please indicate whether the code allows for users to generate Custom Post Types.",
+                     "description": "Whether or not the code allows for users to generate Custom Post Types.",
                      "type": "boolean"
                   }
                }
             },
             "customTables": {
-               "description": "Please indicate whether the code creates any custom tables in the database.",
+               "description": "Whether or not the code creates any custom tables in the database.",
                "type": "object",
                "properties": {
                   "auto": {
-                     "description": "Please indicate the number of custom tables that are automatically created by the code without user intervention.",
+                     "description": "The number of custom tables that are automatically created by the code without user intervention.",
                      "type": "integer",
                      "minimum": 0
                   },
                   "manual": {
-                     "description": "Please indicate whether the code allows the user to create any custom tables.",
+                     "description": "Whether or not the code allows the user to create any custom tables.",
                      "type": "boolean"
                   }
                }
@@ -304,6 +311,7 @@
 
 
       "otherStorage": {
+         "description": "Provides more information about where information may be stored, other than the database.",
          "type": "object",
          "properties": {
             "writesToFiles": {
@@ -318,11 +326,11 @@
                "type": "object",
                "properties": {
                   "auto": {
-                     "description": "Whether or not the code makes changes, or is capable of making changes, to the website's file structure that are not explicitly initiated by a user. This does not include files that are added directly from the repository, or in the original .zip file.",
+                     "description": "Whether or not the code makes changes, or is capable of making changes, to the website's file structure that are not explicitly initiated by a user. This should not include files that are added directly from the repository, or in the original .zip file.",
                      "type": "boolean"
                   },
                   "manual": {
-                     "description": "Whether or not the code makes changes, or is capable of making changes, to the website's file structure that are explicitly initiated by the user. This does not include files that are added directly from the repository, or in the original .zip file.",
+                     "description": "Whether or not the code makes changes, or is capable of making changes, to the website's file structure that are explicitly initiated by the user. This should not include files that are added directly from the repository, or in the original .zip file.",
                   }
                }
             }
@@ -333,7 +341,7 @@
 
 
       "automation": {
-         "description": "Provides some information with regards to action taken by the code without user input.",
+         "description": "Provides more information with regards to action taken by the code without user input.",
          "type": "object",
          "properties": {
             "cron": {
@@ -351,8 +359,8 @@
          "type": "boolean"
       },
       "compatibility": {
+         "description": "Indicates whether or not the code is compatible with Privacy Tools.",
          "type": "object",
-         "description": "Indicates the component's compatibility with Privacy Tools.",
          "properties": {
             "ppiExport": {
                "description": "Does the developer, in good faith, consider the code to be compatible with the PPI Export Tool in WordPress?",
@@ -382,30 +390,78 @@
 
       "monetization": {
          "type": "object",
-         "description": "This section provides details regarding monetization practices.",
+         "description": "This section provides more information about monetization practices. It is included to help facilitate transparency and fair business dealings. Please note that disclosure here does not relieve a developer from any specific obligations that they may have under applicable statutes.",
          "properties": {
             "upsells": {
-               "description": "Does this code promote a paid version, or extensions, or other products or services from the same author(s)?",
-               "type": "boolean"
+               "description": "More information about upselling in the code.",
+               "type": "array",
+               "items": [ 
+                  {
+                     "description": "Does this code promote a paid version, or extensions, or other products or services from the same author(s)?",
+                     "type": "boolean"
+                  } 
+               ],
+               "additionalItems: {
+                  "description": "A comma-separate list of URLs linking to the Terms of Service that apply to any paid version, or extension, or other products or services from the same author(s).",
+                  "type": "string"
+               }
             },
             "donations": {
-               "description": "Does this code contain any request, or information in order to, donate to the plugin or its developer(s)?",
-               "type": "boolean"
+               "description": "More information about donations that are facilitated by the code.",
+               "type": "array",
+               "items": [
+                  {
+                     "description": "Does this code contain any request, or information in order to, donate to the plugin or its developer(s)?",
+                     "type": "boolean"
+                  }
+               ],
+               "additionalItems": {
+                  "description": "A comma-separated list of URLs linking to the Terms of Service that apply to the platform being used to facilitate donations.",
+                  "type": "string"
+               }
             },
             "backLinks": {
-               "description": "Does this code contain or generate, or ask the site owner / admin for permission to generate, backlinks?",
-               "type": "boolean"
+               "description": "More information about the code requesting credit.",
+               "type": "array",
+               "items": [
+                  {
+                     "description": "Does this code contain or generate, or ask the site owner / admin for permission to generate, backlinks?",
+                     "type": "boolean"
+                  }
+               ],
+               "additionalItems": {
+                  "type": "string"
+               }
             },
             "affiliates": {
-               "description": "Does this code contain, or generate affiliate links - i.e. links from which the author may receive conditional compensation, whether in money, or in kind?",
-               "type": "boolean"
+               "description": "More information about affiliate networks that are promoted by the code.",
+               "type": "array",
+               "items": [
+                  {
+                     "description": "Does this code contain, or generate affiliate links - i.e. links from which the author may receive conditional compensation, whether in money, or in kind?",
+                     "type": "boolean"
+                  }
+               ],
+               "additionalItems": {
+                  "description": "A comma-separated list of URLs linking to the Terms of Service that apply to affiliate networks being promoted by the code.",
+                  "type": "string"
+               }
             },
             "advertising": {
-               "description": "Does the code contain, or generate promotions or recommendations for any products or services not directly under the control of the author(s), for which the author(s) receive any compensation, whether in money, or in kind?",
-               "type": "boolean"
+               "description": "More information about advertising that is facilitated by the code.",
+               "type": "array",
+               "items": [ 
+                  {
+                     "description": "Does the code contain, or generate promotions or recommendations for any products or services not directly under the control of the author(s), for which the author(s) receive any compensation, whether in money, or in kind?",
+                     "type": "boolean
+                  }
+               ],
+               "additionalItems": {
+                  "description": "A comma-separated list of URLs linking to the Terms of Service that apply to any products or services that are being advertised by the code.",
+                  "type": "string"
+               }
             }
          }
       }
    }
 }
-//no change in description
