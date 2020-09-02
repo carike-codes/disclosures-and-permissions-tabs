@@ -401,7 +401,7 @@
                      "type": "boolean"
                   } 
                ],
-               "additionalItems: {
+               "additionalItems": {
                   "description": "A comma-separate list of URLs linking to the Terms of Service that apply to any paid version, or extension, or other products or services from the same author(s).",
                   "type": "string"
                }
@@ -453,7 +453,7 @@
                "items": [ 
                   {
                      "description": "Does the code contain, or generate promotions or recommendations for any products or services not directly under the control of the author(s), for which the author(s) receive any compensation, whether in money, or in kind?",
-                     "type": "boolean
+                     "type": "boolean"
                   }
                ],
                "additionalItems": {
