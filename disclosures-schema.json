@@ -258,12 +258,20 @@
                "type": "object",
                "properties": {
                   "auto": {
-                     "description": "Whether or not the code writes to the database in relation to information that is not explicitly input by a user.",
-                     "type": "boolean"
+                     "type": "array",
+                     "items": {
+                        "description": "Whether or not the code writes to the database in relation to information that is not explicitly input by a user.",
+                        "type": boolean
+                     },
+                     "additionalItems": false
                   },
                   "manual": {
-                     "description": "Whether or not the code writes to the database that is not explicitly input by a user.",
-                     "type": "boolean"
+                     "type": "array",
+                     "items": {
+                        "description": "Whether or not the code writes information to the database that was explicitly input by the user.",
+                        "type": boolean
+                     },
+                     "additionalItems": false
                   }
                }
             },
@@ -272,13 +280,22 @@
                "type": "object",
                "properties": {
                   "auto": {
-                     "description": "The number of Custom Post Types that are automatically created by the code without user intervention.",
-                     "type": "integer",
-                     "minimum": 0
+                     "type": "array",
+                     "items": {
+                        "description": "Whether or not the code automatically creates any Custom Post Types without user intervention.",
+                        "type": "boolean"
+                     "additionalItems": {
+                        "description": "The names of any Custom Post Types that are created automatically by the code without user intervention.",
+                        "type": "string",
+                     }
                   },
                   "manual": {
-                     "description": "Whether or not the code allows for users to generate Custom Post Types.",
-                     "type": "boolean"
+                     "type": "array",
+                     "items": {
+                        "description": "Whether or not the code allows for users to generate Custom Post Types.",
+                        "type": "boolean",
+                     },
+                     "additionalItems": false
                   }
                }
             },
@@ -287,13 +304,23 @@
                "type": "object",
                "properties": {
                   "auto": {
-                     "description": "The number of custom tables that are automatically created by the code without user intervention.",
-                     "type": "integer",
-                     "minimum": 0
+                     "type": "array",
+                     "items": {
+                        "description": "Whether or not custom tables are automatically created by the code without user intervention.",
+                        "type": "boolean"
+                     },
+                     "additionalItems": {
+                        "description": The name of any custom tables that are automatically created by the code without user intervention.",
+                        "type": "string"
+                     }
                   },
                   "manual": {
-                     "description": "Whether or not the code allows the user to create any custom tables.",
-                     "type": "boolean"
+                     "type": "array",
+                     "items": {
+                        "description": "Whether or not the code allows the user to create any custom tables.",
+                        "type": "boolean
+                     },
+                     "additionalItems": false
                   }
                }
             }
