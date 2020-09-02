@@ -310,7 +310,7 @@
                         "type": "boolean"
                      },
                      "additionalItems": {
-                        "description": The name of any custom tables that are automatically created by the code without user intervention.",
+                        "description": "The names of any custom tables that are automatically created by the code without user intervention.",
                         "type": "string"
                      }
                   },
@@ -318,7 +318,7 @@
                      "type": "array",
                      "items": {
                         "description": "Whether or not the code allows the user to create any custom tables.",
-                        "type": "boolean
+                        "type": "boolean"
                      },
                      "additionalItems": false
                   }
